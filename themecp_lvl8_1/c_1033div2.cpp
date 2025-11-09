@@ -8,7 +8,20 @@ using namespace std;
 #define S second
 
 void solve() {
+    int n,s;
+    cin>>n>>s;
+
+    int ans = 0;
     
+    for(int i=0; i<n; i++){
+        int dx, dy, xi, yi;
+        cin>>dx>>dy>>xi>>yi;
+        if((xi + yi == s && dx + dy == 0) || (xi == yi && abs(dx + dy) == 2)){
+            ans++;
+        }
+    }
+
+    cout<<ans<<endl;
 }
 
 int32_t main() {
