@@ -11,20 +11,30 @@ void solve(){
     string s;
     cin>>s;
 
+    bool ok = false;
+
+    for(char c: s){
+        if(c == 'B') ok = true;
+    }
+    
     while(q--){
         ll a;
         cin>>a;
         ll ans = 0;
         int curr = 0;
 
-        while(a > 0){
-            if(s[curr]=='A'){
-                a--;
-            }else{
-                a /= 2;
+        if(!ok){
+            ans = a;
+        }else{
+            while(a > 0){
+                if(s[curr]=='A'){
+                    a--;
+                }else{
+                    a /= 2;
+                }
+                ans++;
+                curr = (curr + 1) % n;
             }
-            ans++;
-            curr = (curr + 1) % n;
         }
 
         cout<<ans<<endl;
